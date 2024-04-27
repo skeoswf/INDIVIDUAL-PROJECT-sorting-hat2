@@ -1,1 +1,1 @@
-console.log("itll be fine.");
+import { studentData } from "./studentData";
