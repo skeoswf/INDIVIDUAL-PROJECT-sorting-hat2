@@ -23,13 +23,20 @@ form {
 
 #cardWrapper {
   border: 2px solid rgb(173, 19, 19);
-  margin-top: 2.5vh;
+  margin-top: 2.7vh;
   height: 65vh;
   display: flex;
   justify-content: space-around;
 }
 
 .cardWrapperSecondary {
-  border: 2px solid green;
+  /* border: 2px solid green; */
   width: 45%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.card {
+  height: 170px;
 }
