@@ -11,6 +11,7 @@ const slytherinButton = document.querySelector("#slytherinFilter");
 const noFilterButton = document.querySelector("#noFilter");
 const ravenclawButton = document.querySelector("#ravenclawFilter");
 const hufflepuffButton = document.querySelector("#hufflepuffFilter");
+const studentCardWrapper = document.querySelector("#studentCards");
 const form = document.querySelector("form");
 
 let filterValue = 0;
@@ -160,6 +161,34 @@ const createNewStudent = (e) => {
 
   form.reset();
 };
+
+studentCardWrapper.addEventListener("click", (e) => {
+  if (e.target.id.includes("delete")) {
+    const [, id] = e.target.id.split("--");
+    const index = studentData.findIndex((student) => student.id === Number(id));
+    const nowExpelled = studentData.splice(index, 1)[0];
+    voldemortData.push(nowExpelled);
+
+    switch (filterValue) {
+      case 0:
+        noFilter();
+        break;
+      case 1:
+        gryffindorFilter();
+        break;
+      case 2:
+        slytherinFilter();
+        break;
+      case 3:
+        ravenclawFilter();
+        break;
+      case 4:
+        hufflepuffFilter();
+      default:
+        console.log("what happened");
+    }
+  }
+});
 
 renderCards(studentData);
 
