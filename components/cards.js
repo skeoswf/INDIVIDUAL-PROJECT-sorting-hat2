@@ -8,9 +8,6 @@ export const card = (student) => {
         ${student.description}
       </p>
       <button>
-        update description
-      </button>
-      <button>
         expel
       </button>
     </div>
