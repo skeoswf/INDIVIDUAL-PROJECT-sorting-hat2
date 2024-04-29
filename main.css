@@ -30,11 +30,11 @@ form {
 }
 
 .cardWrapperSecondary {
-  /* border: 2px solid green; */
   width: 45%;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  /* row-gap: 40px; */
 }
 
 .card {
