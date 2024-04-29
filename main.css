@@ -34,9 +34,10 @@ form {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  /* row-gap: 40px; */
+  row-gap: 50px;
 }
 
 .card {
   height: 170px;
+  width: 300px;
 }
