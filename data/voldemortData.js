@@ -1,7 +1,7 @@
 export const voldemortData = [
   {
     id: 1,
-    description: "testdescription1",
+    description: "goes feral on full moons",
     name: "vesper deathguard",
     house: "slytherin",
   },
