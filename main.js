@@ -2,6 +2,7 @@ import { studentData } from "./data/studentData.js";
 import { voldemortData } from "./data/voldemortData.js";
 
 import { card } from "./components/cards.js";
+import { voldemortCard } from "./components/voldemortCard.js";
 
 import { randomHouseGenerator } from "./utils/randomHouse.js";
 import { renderToDom } from "./utils/renderToDom.js";
@@ -11,7 +12,9 @@ const slytherinButton = document.querySelector("#slytherinFilter");
 const noFilterButton = document.querySelector("#noFilter");
 const ravenclawButton = document.querySelector("#ravenclawFilter");
 const hufflepuffButton = document.querySelector("#hufflepuffFilter");
+
 const studentCardWrapper = document.querySelector("#studentCards");
+const voldemortCardWrapper = document.querySelector("#voldemortCards");
 const form = document.querySelector("form");
 
 let filterValue = 0;
@@ -25,7 +28,7 @@ const renderCards = (studentData) => {
   });
 
   voldemortData.forEach((expelled) => {
-    voldemortDomString += card(expelled);
+    voldemortDomString += voldemortCard(expelled);
   });
 
   renderToDom("#studentCards", domString);
@@ -44,7 +47,7 @@ const gryffindorFilter = () => {
 
   voldemortData.forEach((expelled) => {
     if (expelled.house === "gryffindor") {
-      voldemortDomString += card(expelled);
+      voldemortDomString += voldemortCard(expelled);
     }
   });
   filterValue = 1;
@@ -64,7 +67,7 @@ const slytherinFilter = () => {
 
   voldemortData.forEach((expelled) => {
     if (expelled.house === "slytherin") {
-      voldemortDomString += card(expelled);
+      voldemortDomString += voldemortCard(expelled);
     }
   });
   filterValue = 2;
@@ -81,7 +84,7 @@ const noFilter = () => {
   });
 
   voldemortData.forEach((expelled) => {
-    voldemortDomString += card(expelled);
+    voldemortDomString += voldemortCard(expelled);
   });
   filterValue = 0;
   renderToDom("#studentCards", domString);
@@ -100,7 +103,7 @@ const ravenclawFilter = () => {
 
   voldemortData.forEach((expelled) => {
     if (expelled.house === "ravenclaw") {
-      voldemortDomString += card(expelled);
+      voldemortDomString += voldemortCard(expelled);
     }
   });
   filterValue = 3;
@@ -120,7 +123,7 @@ const hufflepuffFilter = () => {
 
   voldemortData.forEach((expelled) => {
     if (expelled.house === "hufflepuff") {
-      voldemortDomString += card(expelled);
+      voldemortDomString += voldemortCard(expelled);
     }
   });
   filterValue = 4;
@@ -168,6 +171,35 @@ studentCardWrapper.addEventListener("click", (e) => {
     const index = studentData.findIndex((student) => student.id === Number(id));
     const nowExpelled = studentData.splice(index, 1)[0];
     voldemortData.push(nowExpelled);
+
+    switch (filterValue) {
+      case 0:
+        noFilter();
+        break;
+      case 1:
+        gryffindorFilter();
+        break;
+      case 2:
+        slytherinFilter();
+        break;
+      case 3:
+        ravenclawFilter();
+        break;
+      case 4:
+        hufflepuffFilter();
+      default:
+        console.log("what happened");
+    }
+  }
+});
+
+voldemortCardWrapper.addEventListener("click", (e) => {
+  if (e.target.id.includes("delete")) {
+    const [, id] = e.target.id.split("--");
+    const index = voldemortData.findIndex(
+      (expelled) => expelled.id === Number(id)
+    );
+    voldemortData.splice(index, 1);
 
     switch (filterValue) {
       case 0:
