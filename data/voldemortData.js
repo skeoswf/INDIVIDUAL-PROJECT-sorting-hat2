@@ -7,7 +7,7 @@ export const voldemortData = [
   },
   {
     id: 2,
-    description: "testdescription2",
+    description: "says he isnt addicted to vaping and can stop anytime",
     name: "nova blightfoot",
     house: "gryffindor",
   },

@@ -7,6 +7,8 @@ import { voldemortCard } from "./components/voldemortCard.js";
 import { randomHouseGenerator } from "./utils/randomHouse.js";
 import { renderToDom } from "./utils/renderToDom.js";
 
+const enterButton = document.querySelector("#enter");
+
 const gryffindorButton = document.querySelector("#gryffindorFilter");
 const slytherinButton = document.querySelector("#slytherinFilter");
 const noFilterButton = document.querySelector("#noFilter");
@@ -231,3 +233,8 @@ ravenclawButton.addEventListener("click", ravenclawFilter);
 hufflepuffButton.addEventListener("click", hufflepuffFilter);
 
 form.addEventListener("submit", createNewStudent);
+
+enterButton.addEventListener("click", () => {
+  document.getElementById("titleCard").hidden = true;
+  document.getElementById("app").hidden = false;
+});
