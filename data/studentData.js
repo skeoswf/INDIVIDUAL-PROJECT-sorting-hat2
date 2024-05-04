@@ -7,13 +7,13 @@ export const studentData = [
   },
   {
     id: 2,
-    description: "testdescription2",
+    description: "is in love with a guy who's never heard of her",
     name: "seraphina nightshade",
     house: "gryffindor",
   },
   {
     id: 3,
-    description: "testdescription3",
+    description: "is kinda extra sometimes",
     name: "thalia starling",
     house: "hufflepuff",
   },
